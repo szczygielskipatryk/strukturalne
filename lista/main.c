@@ -54,6 +54,7 @@ void add_lista(int **lista,int indeks)
 {
     if(sprawdz_rozm()==0)
     {
+        rozmiar=rozmiar+1;
 
         if(indeks>rozmiar)
         {
@@ -61,7 +62,7 @@ void add_lista(int **lista,int indeks)
         }
         else
         {
-            rozmiar=rozmiar+1;
+
         int *tmp;
         tmp=realloc(*lista,rozmiar*sizeof(*lista));
         if(tmp==NULL)
@@ -99,8 +100,9 @@ void wyswietl(int *lista)
 }
 void remove_lista(int **lista,int indeks)
 {
-    if(rozmiar!=0)
+    if(rozmiar>0)
     {
+
         if(indeks>rozmiar)
         {
             printf("\nNie ma takiego indeksu\n");
@@ -124,8 +126,13 @@ void remove_lista(int **lista,int indeks)
             }
             *lista=tmp;
             rozmiar=rozmiar-1;
-            printf("Usuneles %d z pozycji %d",pomoc,indeks);
+            printf("\nUsuneles %d z pozycji %d",pomoc,indeks);
 
         }
     }
+    else
+        {
+        printf("\nLista pusta\n");
+        }
 }
+
